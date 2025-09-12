@@ -11,7 +11,7 @@ As a basic MoSCoW/Need, Nice, Nuts breakdown are as follows.
 
 1. Needs to generate time lapses from midnight-midnight everyday automatically. Also needs to be minimally disruptive.
 
-2. Nice if it was able to automatically send the timelapses to an email list of contacts.
+2. Nice if it was able to automatically send the timelapses to an email list of contacts. Also able to do image unwraps to take the 180º FOV images and produce panoramic images.
 
 3. Nuts but could incorporate some parameters for people who get time lapses eg if they only wanted daytime or night time. Possible to also include something like list of space objects visible.
 
