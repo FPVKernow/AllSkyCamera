@@ -5,4 +5,6 @@ now = datetime.datetime.now()
 
 picam2 = Picamera2
 
-picam2.start_and_capture_file(now.jpg)
+filename = f"image_{now}.jpg"
+
+picam2.start_and_capture_file(filename)
