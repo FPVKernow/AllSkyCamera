@@ -10,5 +10,7 @@ capture_config = picam2.create_still_configuration()
 
 picam2.configure(preview_config)
 
-picam2.start(capture_config, "fullres.jpg")
-time.sleep(20)
+picam2.start()
+time.sleep(10)
+
+picam2.switch_mode_and_capture_file(capture_config, "fullres.jpg")
