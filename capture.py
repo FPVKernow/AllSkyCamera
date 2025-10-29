@@ -1,5 +1,9 @@
-import time
+import datetime import time
 from picamera2 import Picamera2, Preview
+
+today = datetime.datetime.now()
+
+open(f"{today.strftime("%G_%m_%d")}", "x")
 
 picam2 = Picamera2()
 picam2.start_preview(Preview.QTGL)
