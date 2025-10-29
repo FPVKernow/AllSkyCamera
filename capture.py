@@ -5,7 +5,7 @@ picam2 = Picamera2()
 
 picam2.start_preview(Preview.QTGL)
 
-preview_config = picam2.create_preview_configuration(main={"size":(1200,1000)})
+preview_config = picam2.create_preview_configuration(main={"size":(1200,1200)})
 
 picam2.configure(preview_config)
 
