@@ -9,5 +9,5 @@ preview_config = picam2.create_preview_configuration(main={"size":(1000,1000)})
 
 picam2.configure(preview_config)
 
-picam2 = start()
+picam2.start()
 time.sleep(20)
