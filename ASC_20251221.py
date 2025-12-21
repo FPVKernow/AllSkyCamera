@@ -21,6 +21,7 @@ def main():
 
     def imgCapture():
         picam2.capture_file(os.path.join(dirNames(filePath), f"{today}.png"))
+        print("image captured")
 
     def todayDir():#needs error handelling if dir already exists
         try:
