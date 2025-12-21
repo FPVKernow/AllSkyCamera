@@ -16,7 +16,7 @@ def main():
     picam2 = Picamera2()
     picam2.start()
     imgCapture()
-    time.sleep(1)
+    time.sleep(10)
 
 
     def imgCapture():
@@ -32,4 +32,4 @@ def main():
         filenames = os.listdir(path)
         max(filenames)
 
-main()
+    main()
