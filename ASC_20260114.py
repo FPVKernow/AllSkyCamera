@@ -1,9 +1,11 @@
 #AllSkyCamera by T. Winterton 2026
 #from picamera2 import Picamera2  # type: ignore
 import datetime
+import time
 import os
 
 filePath = '/home/tom-winterton/Documents/code_projects/2025/pi_allSkyCamera/captures'#Desired file path
+imagesPerMin = 60 / 10 #how many images per minute
 
 today = datetime.datetime.now() #Gives today value of current time
 print(today.strftime("%Y-%m-%d")) #Prints current date to console in YYYY-MM-DD format
@@ -28,7 +30,7 @@ def makeDir():
         os.mkdir(todaysDirectory) #Makes directory called todaysDirectory
         print(f"Created directory: {todaysDirectory}")
     except FileExistsError:
-        print(f"Directory {todaysDirectory} already exists.")
+        print(f"Directory {todaysDirectory} already exists. Saving location.")
     except Exception as e:
         print(f"An error occured: {e}")
     return todaysDirectory
@@ -37,18 +39,29 @@ def directoryDate():
     newDirectory = f"{filePath}/{today.strftime("%Y-%m-%d")}" #String with same YYYY-MM-DD format
     return newDirectory
 
-def totalImages(userInput):
-     imagesPerMin = 60 / 10 #how many images per minute
-     totalCapture = userInput * imagesPerMin
+def totalImages(userInput, frequency):
+     totalCapture = userInput * frequency
      return totalCapture
+
+def captureImage(frequency, imageCount, now):
+    for i in range(int(imageCount)):
+         print(f"Image captured at: {time.strftime("%H:%M:%S")}")
+         time.sleep(frequency)
 
 #Call Functions Here/Main code#
 
 userTimeInput = runtimeInput()
 
-totalToCapture = totalImages(userTimeInput)
+totalToCapture = totalImages(userTimeInput, imagesPerMin)
 
-print(f"Capturing {totalToCapture} images requested over {userTimeInput} minutes")
+print(f"{totalToCapture} images requested over {userTimeInput} minutes")
 
-print(f"Saving images to: {makeDir()}")#Calls and prints function makeDir
+saveLocation = makeDir()
+
+time.sleep(2)
+print("starting in 2 secionds")
+time.sleep(2)
+
+captureImage(imagesPerMin, totalToCapture, today)
+
 
