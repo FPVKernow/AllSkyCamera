@@ -11,6 +11,7 @@ today = datetime.datetime.now() #Gives today value of current time
 print(today.strftime("%Y-%m-%d")) #Prints current date to console in YYYY-MM-DD format
 print("AllSkyCamera CLI")
 
+
 #Write Functions Here#
 def runtimeInput(): #Creates function
     maximumTime = 60*24 #60mins x 24hrs = 1440
@@ -39,17 +40,19 @@ def directoryDate():
     newDirectory = f"{filePath}/{today.strftime("%Y-%m-%d")}" #String with same YYYY-MM-DD format
     return newDirectory
 
-def totalImages(userInput, frequency):
+def totalImages(userInput, frequency):#Calculats total number of images to be captured
      totalCapture = userInput * frequency
      return totalCapture
 
-def captureImage(frequency, imageCount, now):
+def captureImage(frequency, imageCount, now):#Function for capturing images. At end of for loop, exits.
     for i in range(int(imageCount)):
          print(f"Image captured at: {time.strftime("%H:%M:%S")}")
          time.sleep(frequency)
+    print("Image capture complete")
+
+
 
 #Call Functions Here/Main code#
-
 userTimeInput = runtimeInput()
 
 totalToCapture = totalImages(userTimeInput, imagesPerMin)
